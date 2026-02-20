@@ -41,11 +41,16 @@ def summarize_costs(log_file="logs.jsonl"):
 
     avg_cost = total_cost/total_queries if total_queries else 0
 
-    return round(total_cost,4), round(total_queries,6)
+    return {
+        "total_cost": round(total_cost,4),
+        "avg_cost": round(avg_cost,6),
+        "total_queries" : total_queries,
+    }
 
 if __name__ == "__main__":
-    monthly, avg = summarize_costs()
-    print(f"Monthly costs: ${monthly}")
-    print(f"Average cost per query: ${avg}")
+    summary = summarize_costs()
+    print(f"Monthly costs: ${summary['total_cost']}")
+    print(f"Average cost per query: ${summary['avg_cost']}")
+    print(f"Total queries: {summary['total_queries']}")
 
 
