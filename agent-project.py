@@ -1,3 +1,7 @@
+#============================
+# This is the basic version of the project 
+#============================
+
 import requests
 import datetime
 from statistics import mean
